@@ -14,9 +14,14 @@ const item2 = {
   id: v4(),
   name: "Wash the car",
 };
+const item3 = {
+  id: v4(),
+  name: "Going to market",
+};
 
 function Todos() {
   const [text, setText] = useState("");
+  const [date, setDate] = useState("");
   const [state, setState] = useState({
     todo: {
       title: "Todo",
@@ -24,7 +29,7 @@ function Todos() {
     },
     "in-progress": {
       title: "Doing",
-      items: [],
+      items: [item3],
     },
     done: {
       title: "Done",
@@ -73,13 +78,14 @@ function Todos() {
             {
               id: v4(),
               name: text,
+              date: date,
             },
             ...prev.todo.items,
           ],
         },
       };
     });
-
+    setDate("");
     setText("");
   };
 
@@ -94,12 +100,18 @@ function Todos() {
           placeholder="Add todos"
           onChange={(e) => setText(e.target.value)}
         />
-
+        <label className="label-date">Deadline</label>
+        <input
+          className="add-date"
+          type="Date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
         <button className="btn btn-warning" onClick={addItem}>
           Add Todos
         </button>
       </div>
-      <div className="App">
+      <div className="todo">
         <DragDropContext onDragEnd={handleDragEnd}>
           {_.map(state, (data, key) => {
             return (
@@ -131,7 +143,8 @@ function Todos() {
                                     {...provided.draggableProps}
                                     {...provided.dragHandleProps}
                                   >
-                                    {el.name}
+                                    <h5>{el.name}</h5>
+                                    <h6>Deadline : {el.date}</h6>
                                   </div>
                                 );
                               }}
