@@ -45,12 +45,20 @@
 .label-date {
   position: absolute;
   left: 42%;
-  top: 60%;
+  top: 53%;
 }
 .add-date {
   position: absolute;
   left: 42%;
-  top: 70%;
+  top: 60%;
+  width: 250px;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 178, 178);
+}
+.add-time {
+  position: absolute;
+  left: 42%;
+  top: 72%;
   width: 250px;
   border-radius: 5px;
   border: 1px solid rgb(187, 178, 178);

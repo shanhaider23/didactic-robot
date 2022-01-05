@@ -22,6 +22,7 @@ const item3 = {
 function Todos() {
   const [text, setText] = useState("");
   const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
   const [state, setState] = useState({
     todo: {
       title: "Todo",
@@ -79,12 +80,14 @@ function Todos() {
               id: v4(),
               name: text,
               date: date,
+              time: time,
             },
             ...prev.todo.items,
           ],
         },
       };
     });
+    setTime("");
     setDate("");
     setText("");
   };
@@ -106,6 +109,12 @@ function Todos() {
           type="Date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
+        />
+        <input
+          className="add-time"
+          type="Time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
         />
         <button className="btn btn-warning" onClick={addItem}>
           Add Todos
@@ -144,7 +153,9 @@ function Todos() {
                                     {...provided.dragHandleProps}
                                   >
                                     <h5>{el.name}</h5>
-                                    <h6>Deadline : {el.date}</h6>
+                                    <h6>Deadline</h6>
+                                    <h6> {el.date}</h6>
+                                    <h6> {el.time}</h6>
                                   </div>
                                 );
                               }}
