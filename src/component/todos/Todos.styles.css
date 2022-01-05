@@ -1,0 +1,62 @@
+.App {
+  position: relative;
+  top: 0px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  background-color: rgb(243, 243, 243);
+}
+.container-form {
+  background: rgb(227, 231, 221);
+  position: relative;
+  height: 20vh;
+  width: 100%;
+}
+
+.column {
+  width: 30%;
+}
+
+.droppable-col {
+  width: 100%;
+  background-color: rgb(181, 233, 226);
+  padding: 10px 10px 0 10px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  margin-bottom: 10px;
+  background-color: rgb(86, 92, 66);
+  color: white;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 7px;
+}
+.add-todo {
+  position: absolute;
+  left: 40%;
+  top: 60%;
+  width: 250px;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 178, 178);
+}
+.heading {
+  text-align: center;
+  padding-top: 5px;
+  color: #357994;
+}
+.add-todo::placeholder {
+  font-size: 15px;
+  padding-left: 5px;
+  font-style: italic;
+}
+.btn {
+  position: absolute;
+  left: 60%;
+  top: 55%;
+}
+.item.dragging {
+  background-color: rgb(182, 116, 93);
+}
